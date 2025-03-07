@@ -7,6 +7,7 @@ int main(int argc, char **argv) {
   while (!WindowShouldClose()) {
     BeginDrawing();
     ClearBackground(RAYWHITE);
+    DrawText("HolyLight from MuraliGaming", 190, 200, 20, LIGHTGRAY);
     EndDrawing();
   }
 
