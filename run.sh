@@ -1,6 +1,6 @@
-./build.sh
+#!/bin/bash
 
-BUILD_DIR=build
+BUILD_DIR=$(pwd)/build
 
 cd $BUILD_DIR
 
