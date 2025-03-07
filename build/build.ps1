@@ -1,4 +1,4 @@
-$BUILD_DIR = "build"
+$BUILD_DIR = "dist"
 
 # Check if the directory exists, if not, create it
 if (-Not (Test-Path -Path $BUILD_DIR)) {

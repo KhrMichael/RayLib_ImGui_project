@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILD_DIR=$(pwd)/build
+BUILD_DIR=$(pwd)/dist
 
 cd $BUILD_DIR
 

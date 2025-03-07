@@ -1,4 +1,4 @@
-DEPS_PATH=$(pwd)/deps
+DEPS_PATH=$(pwd)/../deps
 
 mkdir -p $DEPS_PATH
 

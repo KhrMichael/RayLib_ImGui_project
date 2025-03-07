@@ -362,6 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-build/**
+build/dist/
 deps/**
 compile_commands.json
