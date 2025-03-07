@@ -3,24 +3,14 @@
 #include "rlImGui.h"
 
 int main() {
-	const int wid = 700;
-	const int hig = 700;
-	InitWindow(wid, hig, "RayLib_ImGui");
+	const int winWidth = 1920 * 0.8;
+	const int winHeight = 1080 * 0.8;
+	InitWindow(winWidth, winHeight, "game_window");
 	SetTargetFPS(60);
-
-	rlImGuiSetup(true);
 
 	while (!WindowShouldClose()) {
 		BeginDrawing();
-		ClearBackground(RAYWHITE);
-
-		rlImGuiBegin();
-
-		ImGui::Begin("Hello", NULL);
-		ImGui::Text("Hello from imgui");
-		ImGui::End();
-
-		rlImGuiEnd();
+		ClearBackground(BLACK);
 
 		EndDrawing();
 	}
