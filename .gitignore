@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 build/**
 deps/**
+compile_commands.json
