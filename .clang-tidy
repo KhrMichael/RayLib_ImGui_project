@@ -1,0 +1,6 @@
+---
+Checks:  'misc-unused-includes, readability-unused-variable'
+WarningsAsErrors: 'misc-unused-includes, readability-unused-variable'
+
+CheckOptions:
+  misc-unused-includes.remove-unused: true
