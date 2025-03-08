@@ -10,9 +10,12 @@ set(DEPS_DIR ${CMAKE_SOURCE_DIR}/deps)
 set(LIB_DIR ${DEPS_DIR}/lib)
 set(INCLUDE_DIR ${DEPS_DIR}/include)
 
-set(SRC src/main.cpp)
+file(GLOB SOURCES
+    src/*.h
+    src/*.cpp
+)
 
-add_executable(HolyLight.exe ${SRC})
+add_executable(HolyLight.exe ${SOURCES})
 
 include_directories(${INCLUDE_DIR})
 target_include_directories(HolyLight.exe PRIVATE ${INCLUDE_DIR})
