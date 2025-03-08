@@ -13,6 +13,8 @@ set(INCLUDE_DIR ${DEPS_DIR}/include)
 file(GLOB SOURCES
     src/*.h
     src/*.cpp
+    src/**/*.h
+    src/**/*.cpp
 )
 
 add_executable(HolyLight.exe ${SOURCES})
