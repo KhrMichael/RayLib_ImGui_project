@@ -6,4 +6,5 @@ BUILD_DIR=$(dirname $SCRIPTS_DIR)
 DIST_DIR=$BUILD_DIR/dist
 
 cd $DIST_DIR
+
 ./HolyLight
