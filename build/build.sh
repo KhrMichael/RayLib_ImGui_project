@@ -14,8 +14,12 @@ cmake -G Ninja ../..
 
 ninja
 
-rm -r resources
-cp -r ../../resources resources
+if [ -d "resources" ]; then
+    rm -r resources
+fi
+if [ -d "../../resources" ]; then
+    cp -r ../../resources resources
+fi
 
 COMPILE_COMMANDS_FILE_NAME=compile_commands.json
 rm $BUILD_DIR/../$COMPILE_COMMANDS_FILE_NAME || true

@@ -1,4 +1,7 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.20)
+
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
 
 project(HolyLight)
 
@@ -17,19 +20,11 @@ file(GLOB SOURCES
     src/**/*.cpp
 )
 
-add_executable(HolyLight.exe ${SOURCES})
+add_executable(HolyLight ${SOURCES})
 
-include_directories(${INCLUDE_DIR})
-target_include_directories(HolyLight.exe PRIVATE ${INCLUDE_DIR})
-
-link_directories(${LIB_DIR})
-
-
-target_link_libraries(HolyLight.exe
-  PRIVATE
-  raylib
-)
+target_include_directories(HolyLight PRIVATE ${INCLUDE_DIR})
+target_link_directories(HolyLight PRIVATE ${LIB_DIR})
+target_link_libraries(HolyLight raylib)
 
 if(MSVC)
 endif()
-
