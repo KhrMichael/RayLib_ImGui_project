@@ -9,6 +9,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+
+if(NOT MSVC)
+    execute_process(
+        COMMAND /bin/bash setup.sh
+        WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build/scripts
+    )
+else()
+endif()
+
 set(DEPS_DIR ${CMAKE_SOURCE_DIR}/deps)
 set(LIB_DIR ${DEPS_DIR}/lib)
 set(INCLUDE_DIR ${DEPS_DIR}/include)
@@ -26,5 +35,3 @@ target_include_directories(HolyLight PRIVATE ${INCLUDE_DIR})
 target_link_directories(HolyLight PRIVATE ${LIB_DIR})
 target_link_libraries(HolyLight raylib)
 
-if(MSVC)
-endif()
