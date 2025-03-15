@@ -31,11 +31,10 @@ if ! grep -Fxq "raylib" $DEPS_LIST_PATH; then
     cd $RAYLIB_PATH/src/
 
     echo Making raylib ...
-    make PLATFORM=PLATFORM_DESKTOP &>/dev/null
+    make PLATFORM=PLATFORM_DESKTOP >/dev/null 2>/dev/null
 
     echo Installing raylib ...
-    make DESTDIR=$DEPS_DIR install &>/dev/null
-
+    sudo make DESTDIR=$DEPS_DIR install >/dev/null 2>/dev/null
     echo Removing raylib sources ...
     rm -rf $RAYLIB_PATH
 
