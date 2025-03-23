@@ -1,0 +1,21 @@
+CURRENT_DIR="$(dirname $(realpath $0))"
+LUA_DIR="$CURRENT_DIR/lua"
+LUA_ROCKS_DIR="$LUA_DIR/luarocks"
+
+ADDITIONAL_LUA_PATH="$LUA_ROCKS_DIR/share/lua/5.1/?.lua;./?.lua;$LUA_ROCKS_DIR/share/lua/5.1/?/init.lua"
+ADDITIONAL_LUA_CPATH="./?.so;$LUA_ROCKS_DIR/lib/lua/5.1/?.so"
+ADDITIONAL_PATH="$LUA_ROCKS_DIR/bin"
+
+LOCAL_LUA_PATH="$ADDITIONAL_LUA_PATH;$LUA_PATH"
+LOCAL_LUA_CPATH="$ADDITIONAL_LUA_CPATH;$LUA_CPATH"
+LOCAL_PATH="$ADDITIONAL_PATH:$PATH"
+
+if [[ $LUA_PATH != *"$ADDITIONAL_LUA_PATH"* ]]; then
+    export LUA_PATH=$LOCAL_LUA_PATH
+fi
+if [[ $LUA_CPATH != *"$ADDITIONAL_LUA_CPATH"* ]]; then
+    export LUA_CPATH=$LOCAL_LUA_CPATH
+fi
+if [[ $PATH != *"$LOCAL_PATH"* ]]; then
+    export PATH=$LOCAL_PATH
+fi
