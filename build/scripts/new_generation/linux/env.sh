@@ -1,4 +1,4 @@
-CURRENT_DIR="$(dirname $(realpath $0))"
+CURRENT_DIR="$(dirname $(realpath $0))/.."
 LUA_DIR="$CURRENT_DIR/lua"
 LUA_ROCKS_DIR="$LUA_DIR/luarocks"
 
