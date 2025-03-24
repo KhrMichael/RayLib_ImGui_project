@@ -7,11 +7,18 @@ ffi.cdef [[
 
 local M = {}
 
----Calculates the full path for a relative path.
+---Calculates the full path for a relative path. On any fail returns nil.
+---NOTE: for some reason this produce 'segmentation fault' on incorrect path
 ---@param relative_path string
----@return string
+---@return string?
 function M.real_path(relative_path)
-  return ffi.string(ffi.C.realpath(relative_path, nil))
+  local succeeded, real_path = pcall(function()
+    return ffi.string(ffi.C.realpath(relative_path, nil))
+  end)
+  if not succeeded then
+    return nil
+  end
+  return real_path
 end
 
 ---Returns a path to the parent directory of a file or a directory.
