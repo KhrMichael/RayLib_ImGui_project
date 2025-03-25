@@ -12,13 +12,13 @@ local M = {}
 ---@param relative_path string
 ---@return string?
 function M.real_path(relative_path)
-  local succeeded, real_path = pcall(function()
-    return ffi.string(ffi.C.realpath(relative_path, nil))
+  local succeeded, c_real_path = pcall(function()
+    return ffi.C.realpath(relative_path, nil)
   end)
-  if not succeeded then
+  if not succeeded or c_real_path == nil then
     return nil
   end
-  return real_path
+  return ffi.string(c_real_path)
 end
 
 ---Returns a path to the parent directory of a file or a directory.
