@@ -33,9 +33,9 @@ if not git then
   error("Git isn't installed.")
 end
 
-print("Git version: " .. git.get_version())
-
-
-if git.clone("hsaf") == "fail" then
-  print("Failed to clone hsaf")
+local created_dir_path, error_message = fs.create_recursive_dir("./temp/q/")
+if not created_dir_path then
+  error(error_message)
 end
+
+print("Created dir path: " .. created_dir_path)
