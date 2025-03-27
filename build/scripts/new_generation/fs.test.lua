@@ -1,29 +1,24 @@
-local function is_base_directory(path)
-  return path:match("^/$") or path:match("^\\\\\\\\[^<>:\"/\\|?*]*\\$") or path:match("\\\\[^<>:\"/\\|?*]*\\$") or
-      path:match("^[A-Za-z]:\\$")
-end
+require "tools.strings"
+local fs      = require "fs"
+local expects = require "testing.expects"
 
-print "Is a base directory: "
+local suite   = expects.create_suite()
 
-if is_base_directory("/") then
-  print(" -> " .. "/ is a base directory")
-else
-  print("FAILED: " .. "/ is a base directory")
-end
+suite:expect_true(function() return fs.is_root_directory("/") end, 'fs.is_root_directory("/")')
 
-if is_base_directory("D:\\") then
+if fs.is_root_directory("D:\\") then
   print(" -> " .. "D:\\ is a base directory")
 else
   print("FAILED: " .. "D:\\ is a base directory")
 end
 
-if is_base_directory("\\\\\\\\wsl\\") then
+if fs.is_root_directory("\\\\\\\\wsl\\") then
   print(" -> " .. "\\\\\\\\wsl\\ is a base directory")
 else
   print("FAILED: " .. "\\\\\\\\wsl\\ is a base directory")
 end
 
-if is_base_directory("\\\\wsl.localhost\\") then
+if fs.is_root_directory("\\\\wsl.localhost\\") then
   print(" -> " .. "\\\\wsl.localhost\\ is a base directory")
 else
   print("FAILED: " .. "\\\\wsl.localhost\\ is a base directory")
@@ -32,7 +27,7 @@ end
 print ""
 print "Is NOT a base directory: "
 
-if not is_base_directory("\\\\\\\\wsl*\\") then
+if not fs.is_root_directory("\\\\\\\\wsl*\\") then
   print(" -> " .. "\\\\\\\\wsl*\\ isn't a base directory")
 else
   print("FAILED: " .. "\\\\\\\\wsl*\\ isn't a base directory")
